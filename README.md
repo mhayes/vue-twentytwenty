@@ -12,7 +12,7 @@ $ npm install vue-twentytwenty --save
 
 ## Simple
 
-```
+```vue
 <template>
   <TwentyTwenty
     before="//placehold.it/600x200/E8117F/FFFFFF"
@@ -32,7 +32,7 @@ export default {
 
 ## Advanced
 
-```
+```vue
 <template>
   <TwentyTwenty
     offset="0.7"
