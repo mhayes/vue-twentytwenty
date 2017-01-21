@@ -5,13 +5,15 @@
   "author": "Mark Hayes <me@markhay.es>",
   "license": "MIT",
   "devDependencies": {
-    "node-sass": "^4.3.0",
-    "sass-loader": "^4.1.1",
     "vue-cli": "^2.8.0"
   },
   "scripts": {
     "dev": "./node_modules/.bin/vue build src/TwentyTwenty.vue",
     "demo": "./node_modules/.bin/vue build demo/Demo.vue",
     "build": "./node_modules/.bin/vue build src/TwentyTwenty.vue --lib --prod"
+  },
+  "dependencies": {
+    "node-sass": "^4.3.0",
+    "sass-loader": "^4.1.1"
   }
 }

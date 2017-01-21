@@ -16,7 +16,7 @@ $ npm install vue-twentytwenty --save
 <template>
   <TwentyTwenty
     before="//placehold.it/600x200/E8117F/FFFFFF"
-    after="//placehold.it/600x200/CCCCCC/FFFFFF"
+    after="//placehold.it/600x200/CCCCCC/FFFFFF" />
 </template>
 
 <script>
