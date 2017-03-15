@@ -1,6 +1,6 @@
 {
   "name": "vue-twentytwenty",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "src/TwentyTwenty.vue",
   "author": "Mark Hayes <me@markhay.es>",
   "license": "MIT",
