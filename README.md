@@ -66,7 +66,7 @@ var YourComponent = Vue.extend({
 <!doctype html>
 <html>
 <head>
-  <link rel="stylesheet" href="path/to/vue-twentytwenty/dist/vue-twentytwenty.css" />
+  <link rel="stylesheet" href="//unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.css" />
 </head>
 <body>
   <div id="app">
@@ -74,8 +74,8 @@ var YourComponent = Vue.extend({
       before="//placehold.it/600x200/E8117F/FFFFFF"
       after="//placehold.it/600x200/CCCCCC/FFFFFF" />
   </div>
-  <script src="path/to/vue/vue.js"></script>
-  <script src="path/to/vue-twentytwenty/dist/vue-twentytwenty.js"></script>
+  <script src="//unpkg.com/vue@2/dist/vue.js"></script>
+  <script src="//unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.js"></script>
   <script>
   new Vue({
     el: '#app'
