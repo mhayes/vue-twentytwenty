@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='//fonts.googleapis.com/css?family=Roboto:300,900,300italic' rel=stylesheet>
+    <link rel="stylesheet" href="demo/styles.css">
+    <link rel="stylesheet" href="dist/vue-twentytwenty.css">
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+        <header class="container">
+          <div class="hero">
+            <h1 class="name"><a href="/">vue-<b>twentytwenty</b></a></h1>
+            <h2 class="subheader">A nifty image comparison utility.</h2>
+          </div>
+        </header>
+      </div>
+      <div class="post">
+        <div id="app">
+          <TwentyTwenty
+            offset="0.7"
+            before="demo/before.jpg"
+            before-label="before"
+            after="demo/after.jpg"
+            after-label="after" />
+        </div>
+        <p><strong>tl;dr &mdash; A picture is worth a thousand words</strong></p>
+      </div>
+    </div>
+    <footer id="footer">
+      <div class="container">
+        <p style="padding-top: 20px;">2017 &mdash; <a href="https://markhay.es">markhay.es</a></p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="dist/vue-twentytwenty.js"></script>
+    <script>
+    new Vue({
+      el: '#app'
+    });
+    </script>
+  </body>
+</html>
