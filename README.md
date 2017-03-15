@@ -1,12 +1,23 @@
 # TwentyTwenty
 
+[![npm](https://img.shields.io/npm/v/vue-twentytwenty.svg)
+![npm](https://img.shields.io/npm/dm/vue-twentytwenty.svg)](https://www.npmjs.com/package/vue-twentytwenty)
+[![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
+
 A small component to quickly let users see the differences between 2 images. Based on the work I did for ZURB's [TwentyTwenty plugin](http://zurb.com/playground/twentytwenty).
+
+<a href="https://mhayes.github.io/vue-twentytwenty/" target="_blank">Live Demo</a>
 
 ## Installation
 
 ```
 $ npm install vue-twentytwenty --save
 ```
+
+Or download the latest release using:
+
+  * https://unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.js
+  * https://unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.css
 
 ## Usage
 
