@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="dist/vue-twentytwenty.css">
+  </head>
+
+  <body>
+    <div id="app">
+    <h1>vue-twentytwenty</h1>
+    <TwentyTwenty
+      offset="0.7"
+      before="//placehold.it/600x200/E8117F/FFFFFF"
+      before-label="before"
+      after="//placehold.it/600x200/CCCCCC/FFFFFF"
+      after-label="after" />
+    </div>
+
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="dist/vue-twentytwenty.js"></script>
+    <script>
+    // Vue.component('TwentyTwenty', TwentyTwenty);
+    new Vue({
+      el: '#app'
+    });
+    </script>
+  </body>
+</html>
