@@ -161,8 +161,8 @@ export default {
   font-size: 0.8em;
   top: calc(50% - 0.4em - 5px);
   padding: 10px;
-  background: rgba(255, 255, 255, 0);
-  color: rgba(255, 255, 255, 0);
+  background: rgba(255, 255, 255, 0.4);
+  color: white;
 }
 .twentytwenty-container .twentytwenty-overlay .twentytwenty-before-label {
   left: 0;
@@ -172,11 +172,6 @@ export default {
 }
 .twentytwenty-container .twentytwenty-overlay:hover {
   opacity: 1;
-}
-.twentytwenty-container .twentytwenty-overlay:hover .twentytwenty-before-label,
-.twentytwenty-container .twentytwenty-overlay:hover .twentytwenty-after-label {
-  background: rgba(255, 255, 255, 0.4);
-  color: white;
 }
 .twentytwenty-container .twentytwenty-handle {
   cursor: move;
