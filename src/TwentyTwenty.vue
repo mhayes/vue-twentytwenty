@@ -132,6 +132,7 @@ export default {
 .twentytwenty-container {
   position: relative;
   overflow: hidden;
+  box-sizing: content-box;
 }
 .twentytwenty-container img {
   max-width: 100%;
@@ -148,8 +149,9 @@ export default {
   height: 100%;
   top: 0;
   position: absolute;
-  background: transparent;
-  transition-property: background;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition-property: opacity;
   transition-duration: 0.5s;
 }
 .twentytwenty-container .twentytwenty-overlay .twentytwenty-before-label,
@@ -161,8 +163,6 @@ export default {
   padding: 10px;
   background: rgba(255, 255, 255, 0);
   color: rgba(255, 255, 255, 0);
-  transition-property: all;
-  transition-duration: 0.5s;
 }
 .twentytwenty-container .twentytwenty-overlay .twentytwenty-before-label {
   left: 0;
@@ -171,7 +171,7 @@ export default {
   right: 0;
 }
 .twentytwenty-container .twentytwenty-overlay:hover {
-  background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
 }
 .twentytwenty-container .twentytwenty-overlay:hover .twentytwenty-before-label,
 .twentytwenty-container .twentytwenty-overlay:hover .twentytwenty-after-label {
