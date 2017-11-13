@@ -1,6 +1,7 @@
 <template>
   <div class="twentytwenty-container"
     v-bind:style="containerStyle"
+    v-on:touchstart="startSlide"
     v-on:mousedown="startSlide">
     <img :src="after" alt="after"
       v-on:mousedown.prevent
@@ -69,7 +70,7 @@ export default {
 
     moveSlide (event) {
       if (this.sliding) {
-        var x = event.pageX - this.imgOffset.left
+        var x = (event.touches ? event.touches[0].pageX : event.pageX) - this.imgOffset.left
         x = (x < 0) ? 0 : ((x > this.w) ? this.w : x)
 
         this.slideOffset = (x / this.w)
@@ -115,12 +116,16 @@ export default {
   },
 
   mounted () {
+    document.addEventListener("touchmove", this.moveSlide)
+    document.addEventListener("touchup", this.endSlide)
     document.addEventListener("mousemove", this.moveSlide)
     document.addEventListener("mouseup", this.endSlide)
     window.addEventListener("resize", this.resize)
   },
 
   beforeDestroy () {
+    document.removeEventListener("touchmove", this.moveSlide)
+    document.removeEventListener("touchup", this.endSlide)
     document.removeEventListener("mousemove", this.moveSlide)
     document.removeEventListener("mouseup", this.endSlide)
     window.removeEventListener("resize", this.resize)
