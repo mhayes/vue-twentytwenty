@@ -143,5 +143,6 @@ export default {
 
 ```
 yarn run build
+yarn version
 yarn publish
 ```
