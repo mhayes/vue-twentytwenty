@@ -1,6 +1,7 @@
 <template>
   <div class="twentytwenty-container"
     v-bind:style="containerStyle"
+    v-on:touchstart="startSlide"
     v-on:mousedown="startSlide">
     <img :src="after" alt="after"
       v-on:mousedown.prevent
@@ -69,7 +70,7 @@ export default {
 
     moveSlide (event) {
       if (this.sliding) {
-        var x = event.pageX - this.imgOffset.left
+        var x = (event.touches ? event.touches[0].pageX : event.pageX) - this.imgOffset.left
         x = (x < 0) ? 0 : ((x > this.w) ? this.w : x)
 
         this.slideOffset = (x / this.w)
@@ -115,12 +116,16 @@ export default {
   },
 
   mounted () {
+    document.addEventListener("touchmove", this.moveSlide)
+    document.addEventListener("touchup", this.endSlide)
     document.addEventListener("mousemove", this.moveSlide)
     document.addEventListener("mouseup", this.endSlide)
     window.addEventListener("resize", this.resize)
   },
 
   beforeDestroy () {
+    document.removeEventListener("touchmove", this.moveSlide)
+    document.removeEventListener("touchup", this.endSlide)
     document.removeEventListener("mousemove", this.moveSlide)
     document.removeEventListener("mouseup", this.endSlide)
     window.removeEventListener("resize", this.resize)
@@ -132,6 +137,7 @@ export default {
 .twentytwenty-container {
   position: relative;
   overflow: hidden;
+  box-sizing: content-box;
 }
 .twentytwenty-container img {
   max-width: 100%;
@@ -148,8 +154,9 @@ export default {
   height: 100%;
   top: 0;
   position: absolute;
-  background: transparent;
-  transition-property: background;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition-property: opacity;
   transition-duration: 0.5s;
 }
 .twentytwenty-container .twentytwenty-overlay .twentytwenty-before-label,
@@ -159,10 +166,8 @@ export default {
   font-size: 0.8em;
   top: calc(50% - 0.4em - 5px);
   padding: 10px;
-  background: rgba(255, 255, 255, 0);
-  color: rgba(255, 255, 255, 0);
-  transition-property: all;
-  transition-duration: 0.5s;
+  background: rgba(255, 255, 255, 0.4);
+  color: white;
 }
 .twentytwenty-container .twentytwenty-overlay .twentytwenty-before-label {
   left: 0;
@@ -171,12 +176,7 @@ export default {
   right: 0;
 }
 .twentytwenty-container .twentytwenty-overlay:hover {
-  background: rgba(0, 0, 0, 0.5);
-}
-.twentytwenty-container .twentytwenty-overlay:hover .twentytwenty-before-label,
-.twentytwenty-container .twentytwenty-overlay:hover .twentytwenty-after-label {
-  background: rgba(255, 255, 255, 0.4);
-  color: white;
+  opacity: 1;
 }
 .twentytwenty-container .twentytwenty-handle {
   cursor: move;
