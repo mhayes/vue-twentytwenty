@@ -138,3 +138,10 @@ export default {
 };
 </script>
 ```
+
+### Publish
+
+```
+yarn run build
+yarn publish
+```
