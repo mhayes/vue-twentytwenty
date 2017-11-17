@@ -8,6 +8,10 @@
     "type": "git",
     "url": "https://github.com/mhayes/vue-twentytwenty"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "devDependencies": {
     "vue-cli": "^2.8.1"
   },
