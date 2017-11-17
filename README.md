@@ -141,8 +141,11 @@ export default {
 
 ### Publish
 
+From a clean repository (no pending changes) run the following:
+
 ```
-yarn run build
 yarn version
+git push && git push --tags
+yarn run build
 yarn publish
 ```
