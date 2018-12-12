@@ -9,7 +9,8 @@
     <img :src="before" alt="before"
       v-on:mousedown.prevent
       v-bind:style="beforeImgStyle" />
-    <div class="twentytwenty-overlay">
+    <div class="twentytwenty-overlay"
+      v-bind:style="overlayStyle">
       <div v-if="beforeLabel" class="twentytwenty-before-label">{{beforeLabel}}</div>
       <div v-if="afterLabel" class="twentytwenty-after-label">{{afterLabel}}</div>
     </div>
@@ -28,7 +29,8 @@ export default {
       imgOffset: null,
       slideOffset: this.offset,
       sliding: false,
-      containerStyle: {}
+      containerStyle: {},
+      overlayStyle: {}
     }
   },
 
@@ -66,6 +68,7 @@ export default {
     startSlide (event) {
       this.sliding = true
       this.moveSlide(event)
+      this.overlayStyle = { opacity: 0 }
     },
 
     moveSlide (event) {
@@ -77,7 +80,10 @@ export default {
       }
     },
 
-    endSlide () { this.sliding = false },
+    endSlide () {
+      this.sliding = false
+      this.overlayStyle = {}
+    },
 
     resize () {
       this.containerStyle = {};
@@ -175,7 +181,7 @@ export default {
 .twentytwenty-container .twentytwenty-overlay .twentytwenty-after-label {
   right: 0;
 }
-.twentytwenty-container .twentytwenty-overlay:hover {
+.twentytwenty-container:hover > .twentytwenty-overlay {
   opacity: 1;
 }
 .twentytwenty-container .twentytwenty-handle {
