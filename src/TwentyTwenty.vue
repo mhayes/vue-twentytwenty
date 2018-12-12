@@ -1,6 +1,8 @@
 <template>
   <div class="twentytwenty-container"
-    v-bind:style="containerStyle">
+    v-bind:style="containerStyle"
+    v-on:touchstart="startSlide"
+    v-on:mousedown="startSlide">
     <img :src="after" alt="after"
       v-on:mousedown.prevent
       v-on:load="setDimensions" />
@@ -13,9 +15,7 @@
       <div v-if="afterLabel" class="twentytwenty-after-label">{{afterLabel}}</div>
     </div>
     <div class="twentytwenty-handle"
-      v-bind:style="handleStyle"
-      v-on:touchstart="startSlide"
-      v-on:mousedown="startSlide">
+      v-bind:style="handleStyle">
         <div class="twentytwenty-arrow-left"></div>
         <div class="twentytwenty-arrow-right"></div>
     </div>
