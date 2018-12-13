@@ -3,19 +3,25 @@
     v-bind:style="containerStyle"
     v-on:touchstart="startSlide"
     v-on:mousedown="startSlide">
+
     <img :src="after" alt="after"
       v-on:mousedown.prevent
       v-on:load="setDimensions" />
+
     <img :src="before" alt="before"
       v-on:mousedown.prevent
       v-bind:style="beforeImgStyle" />
+
     <div class="twentytwenty-overlay"
       v-bind:style="overlayStyle">
       <div v-if="beforeLabel" class="twentytwenty-before-label">{{beforeLabel}}</div>
       <div v-if="afterLabel" class="twentytwenty-after-label">{{afterLabel}}</div>
     </div>
+
     <div class="twentytwenty-handle"
-      v-bind:style="handleStyle">
+      v-bind:style="handleStyle"
+      tabindex="0"
+      v-on:keydown="handleArrowNavigation">
         <div class="twentytwenty-arrow-left"></div>
         <div class="twentytwenty-arrow-right"></div>
     </div>
@@ -23,6 +29,10 @@
 </template>
 
 <script>
+
+const RIGHT_KEYSTROKE = 39;
+const LEFT_KEYSTROKE  = 37;
+
 export default {
   data () {
     return {
@@ -52,9 +62,12 @@ export default {
     offset: {
       type: [String, Number],
       default: 0.5,
-      validator: (value) => {
-        return (value > 0 && value <= 1)
-      }
+      validator: (value) => (value > 0 && value <= 1)
+    },
+    keyboardStep: {
+      type: Number,
+      default: 0.2,
+      validator: (value) => (value > 0 && value <= 1)
     }
   },
 
@@ -71,12 +84,24 @@ export default {
       this.overlayStyle = { opacity: 0 }
     },
 
+    handleArrowNavigation(event) {
+      return this.moveSlide(event)
+    },
+
     moveSlide (event) {
       if (this.sliding) {
         var x = (event.touches ? event.touches[0].pageX : event.pageX) - this.imgOffset.left
         x = (x < 0) ? 0 : ((x > this.w) ? this.w : x)
 
-        this.slideOffset = (x / this.w)
+        return this.slideOffset = (x / this.w)
+      }
+
+      if (event.keyCode) {
+        switch(event.keyCode) {
+          case LEFT_KEYSTROKE:  this.slideOffset = ((this.floatOffset - this.keyboardStep) >= 0) ? this.floatOffset - this.keyboardStep : 0 ; break;
+          case RIGHT_KEYSTROKE: this.slideOffset = ((this.floatOffset + this.keyboardStep) <= 1) ? this.floatOffset + this.keyboardStep : 1 ; break;
+          default: return;
+        }
       }
     },
 
@@ -118,6 +143,10 @@ export default {
     h () {
       if (this.imgOffset)
         return this.imgOffset.height
+    },
+
+    floatOffset () {
+      return parseFloat(this.slideOffset)
     }
   },
 
@@ -194,6 +223,9 @@ export default {
   margin-left: -4px;
   margin-top: -4px;
   user-select: none;
+}
+.twentytwenty-container .twentytwenty-handle:active {
+  outline: 0;
 }
 .twentytwenty-container .twentytwenty-handle:before, .twentytwenty-container .twentytwenty-handle:after {
   content: "";

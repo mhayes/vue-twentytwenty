@@ -1,8 +1,11 @@
 {
   "name": "vue-twentytwenty",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "main": "src/TwentyTwenty.vue",
   "author": "Mark Hayes <me@markhay.es>",
+  "contributors": [
+    "Mattia Astorino (https://equinsuocha.io)"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
