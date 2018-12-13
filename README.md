@@ -93,7 +93,7 @@ var YourComponent = Vue.extend({
 |after|URL of after image|true|String|-|
 |afterLabel|When hovering over image what label should show up over after image|false|String|-|
 |offset|How far from the left the slider should be on load (between 0 and 1)|false|Number|0.5|
-|keyboardStep|How far the slider should be moved on arrow key press (between 0 and 1)|false|Number|0.1|
+|keyboardStep|How far the slider should be moved on arrow key press (between 0 and 1)|false|Number|0.2|
 
 ## Usage
 
