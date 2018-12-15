@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href='//fonts.googleapis.com/css?family=Roboto:300,900,300italic' rel=stylesheet>
-    <link rel="stylesheet" href="demo/styles.css">
-    <link rel="stylesheet" href="//unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,900,300italic' rel=stylesheet>
+    <link rel="stylesheet" href="./dist/vue-twentytwenty.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   </head>
 
   <body>
@@ -18,7 +18,7 @@
       </div>
       <div class="post">
         <div id="app">
-          <TwentyTwenty
+          <vue-twentytwenty
             offset="0.7"
             before="demo/before.jpg"
             before-label="before"
@@ -34,12 +34,9 @@
       </div>
     </footer>
 
-    <script src="//unpkg.com/vue@2"></script>
-    <script src="//unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.js"></script>
+    <script src="./dist/vue-twentytwenty.umd.min.js"></script>
     <script>
-    new Vue({
-      el: '#app'
-    });
+      new Vue({ el: '#app'});
     </script>
   </body>
 </html>
