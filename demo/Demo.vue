@@ -6,6 +6,7 @@
       before="//placehold.it/600x200/E8117F/FFFFFF"
       beforeLabel="before"
       after="//placehold.it/600x200/CCCCCC/FFFFFF"
+      keyboardStep="0.1"
       afterLabel="after" />
 
     <!-- <h2>Demo 2</h2>
@@ -17,7 +18,6 @@
 
 <script>
   import TwentyTwenty from '../src/TwentyTwenty.vue';
-
   export default {
     components: {
       TwentyTwenty

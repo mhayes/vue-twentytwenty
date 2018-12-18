@@ -93,6 +93,7 @@ var YourComponent = Vue.extend({
 |after|URL of after image|true|String|-|
 |afterLabel|When hovering over image what label should show up over after image|false|String|-|
 |offset|How far from the left the slider should be on load (between 0 and 1)|false|Number|0.5|
+|keyboardStep|How far the slider should be moved on arrow key press (between 0 and 1)|false|Number|0.2|
 
 ## Usage
 
@@ -122,6 +123,7 @@ export default {
 <template>
   <TwentyTwenty
     offset="0.7"
+    keyboardStep="0.3"
     before="//placehold.it/600x200/E8117F/FFFFFF"
     beforeLabel="BEFORE"
     after="//placehold.it/600x200/CCCCCC/FFFFFF"
