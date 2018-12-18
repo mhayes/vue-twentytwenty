@@ -29,8 +29,7 @@
 </template>
 
 <script>
-const RIGHT_KEYSTROKE = 39;
-const LEFT_KEYSTROKE  = 37;
+
 export default {
   data () {
     return {
@@ -62,7 +61,7 @@ export default {
       validator: (value) => (value > 0 && value <= 1)
     },
     keyboardStep: {
-      type: Number,
+      type: [String, Number],
       default: 0.2,
       validator: (value) => (value > 0 && value <= 1)
     }
@@ -87,10 +86,12 @@ export default {
         x = (x < 0) ? 0 : ((x > this.w) ? this.w : x)
         return this.slideOffset = (x / this.w)
       }
-      if (event.keyCode) {
-        switch(event.keyCode) {
-          case LEFT_KEYSTROKE:  this.slideOffset = ((this.floatOffset - this.keyboardStep) >= 0) ? this.floatOffset - this.keyboardStep : 0 ; break;
-          case RIGHT_KEYSTROKE: this.slideOffset = ((this.floatOffset + this.keyboardStep) <= 1) ? this.floatOffset + this.keyboardStep : 1 ; break;
+      if (event.key) {
+        switch(event.key) {
+          case "Left":     // IE/Edge key
+          case "ArrowLeft":  this.slideOffset = ((this.floatOffset - this.floatKeyboardStep) >= 0) ? this.floatOffset - this.floatKeyboardStep : 0 ; break;
+          case "Right":    // IE/Edge key
+          case "ArrowRight": this.slideOffset = ((this.floatOffset + this.floatKeyboardStep) <= 1) ? this.floatOffset + this.floatKeyboardStep : 1 ; break;
           default: return;
         }
       }
@@ -129,7 +130,10 @@ export default {
         return this.imgOffset.height
     },
     floatOffset () {
-      return parseFloat(this.slideOffset)
+      return parseFloat(this.slideOffset) 
+    },
+    floatKeyboardStep () {
+      return parseFloat(this.keyboardStep)
     }
   },
   mounted () {
