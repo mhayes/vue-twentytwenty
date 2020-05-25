@@ -1,7 +1,7 @@
 {
   "name": "vue-twentytwenty",
   "version": "0.6.2",
-  "main": "src/TwentyTwenty.vue",
+  "main": "./dist/twentytwenty.common.js",
   "author": "Mark Hayes <me@markhay.es>",
   "license": "MIT",
   "repository": {
@@ -9,14 +9,19 @@
     "url": "https://github.com/mhayes/vue-twentytwenty"
   },
   "files": [
-    "dist",
-    "src"
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json"
   ],
   "devDependencies": {
-    "vue-cli": "^2.8.1"
+    "@vue/cli-plugin-babel": "~4.3.0",
+    "@vue/cli-service": "^4.3.1",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
   },
   "scripts": {
-    "dev": "./node_modules/.bin/vue build demo/Demo.vue",
-    "build": "./node_modules/.bin/vue build vue-twentytwenty.js --lib TwentyTwenty --prod"
+    "serve": "vue-cli-service serve demo/index.js",
+    "build": "vue-cli-service build --target lib --name twentytwenty ./src/index.js"
   }
 }
