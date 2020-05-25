@@ -1,7 +1,7 @@
 {
   "name": "vue-twentytwenty",
   "version": "0.6.2",
-  "main": "./dist/twentytwenty.common.js",
+  "main": "./dist/vue-twentytwenty.common.js",
   "author": "Mark Hayes <me@markhay.es>",
   "license": "MIT",
   "repository": {
@@ -22,6 +22,6 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve demo/index.js",
-    "build": "vue-cli-service build --target lib --name twentytwenty ./src/index.js"
+    "build": "vue-cli-service build --target lib --name vue-twentytwenty ./src/index.js"
   }
 }
