@@ -153,6 +153,7 @@ export default {
 
 <style>
 .twentytwenty-container {
+  z-index: 9999;
   position: relative;
   overflow: hidden;
   box-sizing: content-box;
