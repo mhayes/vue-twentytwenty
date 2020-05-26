@@ -16,12 +16,11 @@ $ npm install vue-twentytwenty --save
 
 Or download the latest release using:
 
-  * https://unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.js
-  * https://unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.css
+  * https://unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.umd.min.js
 
 ## Usage
 
-`vue-twentytwenty` is a UMD module, which can be used as a module in both CommonJS and AMD modular environments. When in a non-modular environment, `TwentyTwenty` will be registered as a global variable.
+`twentytwenty` is a UMD module, which can be used as a module in both CommonJS and AMD modular environments. When in a non-modular environment, `TwentyTwenty` will be registered as a global variable.
 
 ### ES6
 
@@ -65,22 +64,19 @@ var YourComponent = Vue.extend({
 ```html
 <!doctype html>
 <html>
-<head>
-  <link rel="stylesheet" href="//unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.css" />
-</head>
 <body>
   <div id="app">
-    <TwentyTwenty
+    <twenty-twenty
       before="//placehold.it/600x200/E8117F/FFFFFF"
       after="//placehold.it/600x200/CCCCCC/FFFFFF" />
   </div>
-  <script src="//unpkg.com/vue@2/dist/vue.js"></script>
-  <script src="//unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.js"></script>
+  <script src="//unpkg.com/vue@2/dist/vue.js"></script> 
+  <script src="//unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.umd.min.js"></script> 
   <script>
   new Vue({
     el: '#app'
   })
-  </script>
+  </script> 
 </body>
 </html>
 ```
