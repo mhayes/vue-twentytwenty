@@ -1,6 +1,6 @@
 {
   "name": "vue-twentytwenty",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "main": "./dist/vue-twentytwenty.common.js",
   "author": "Mark Hayes <me@markhay.es>",
   "contributors": [
