@@ -20,7 +20,7 @@ Or download the latest release using:
 
 ## Usage
 
-`twentytwenty` is a UMD module, which can be used as a module in both CommonJS and AMD modular environments. When in a non-modular environment, `TwentyTwenty` will be registered as a global variable.
+`TwentyTwenty` is a UMD module, which can be used as a module in both CommonJS and AMD modular environments. When in a non-modular environment, `TwentyTwenty` will be registered as a global variable.
 
 ### ES6
 
@@ -140,8 +140,6 @@ export default {
 From a clean repository (no pending changes) run the following:
 
 ```
-yarn version
-git push && git push --tags
-yarn run build
-yarn publish
+yarn version --patch
+git push --follow-tags
 ```
