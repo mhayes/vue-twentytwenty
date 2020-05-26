@@ -17,6 +17,7 @@ $ npm install vue-twentytwenty --save
 Or download the latest release using:
 
   * https://unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.umd.min.js
+  * https://unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.css
 
 ## Usage
 
@@ -25,6 +26,7 @@ Or download the latest release using:
 ### ES6
 
 ```js
+import 'vue-twentytwenty/dist/vue-twentytwenty.css';
 import TwentyTwenty from 'vue-twentytwenty';
 
 export default {
@@ -64,6 +66,9 @@ var YourComponent = Vue.extend({
 ```html
 <!doctype html>
 <html>
+<head>
+  <link rel="stylesheet" href="//unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.css" />
+</head>
 <body>
   <div id="app">
     <twenty-twenty
@@ -103,6 +108,7 @@ var YourComponent = Vue.extend({
 </template>
 
 <script>
+import 'vue-twentytwenty/dist/vue-twentytwenty.css';
 import TwentyTwenty from 'vue-twentytwenty';
 
 export default {
@@ -126,6 +132,7 @@ export default {
 </template>
 
 <script>
+import 'vue-twentytwenty/dist/vue-twentytwenty.css';
 import TwentyTwenty from 'vue-twentytwenty';
 
 export default {
