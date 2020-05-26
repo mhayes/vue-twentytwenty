@@ -3,6 +3,7 @@
     <h2>Demo</h2>
     <TwentyTwenty
       offset="0.7"
+      keyboardStep="0.1"
       before="//placehold.it/600x200/E8117F/FFFFFF"
       beforeLabel="before"
       after="//placehold.it/600x200/CCCCCC/FFFFFF"

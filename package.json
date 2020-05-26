@@ -3,7 +3,11 @@
   "version": "0.8.1",
   "main": "./dist/vue-twentytwenty.common.js",
   "author": "Mark Hayes <me@markhay.es>",
-  "license": "MIT",
+  "contributors": [
+    "Mattia Astorino (https://equinsuocha.io)",
+    "Michele Riva (https://micheleriva.it)"
+  ],
+  "license": "MIT",  
   "repository": {
     "type": "git",
     "url": "https://github.com/mhayes/vue-twentytwenty"
@@ -16,12 +20,36 @@
   ],
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",
+    "@vue/cli-plugin-eslint": "~4.3.0",
     "@vue/cli-service": "^4.3.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11"
   },
   "scripts": {
     "serve": "vue-cli-service serve demo/index.js",
-    "build": "vue-cli-service build --target lib --name vue-twentytwenty ./src/index.js"
-  }
+    "build": "vue-cli-service build --target lib --name vue-twentytwenty ./src/index.js",
+    "lint": "vue-cli-service lint"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }

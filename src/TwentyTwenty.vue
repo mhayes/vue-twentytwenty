@@ -3,19 +3,25 @@
     v-bind:style="containerStyle"
     v-on:touchstart="startSlide"
     v-on:mousedown="startSlide">
+
     <img :src="after" alt="after"
       v-on:mousedown.prevent
       v-on:load="setDimensions" />
+
     <img :src="before" alt="before"
       v-on:mousedown.prevent
       v-bind:style="beforeImgStyle" />
+
     <div class="twentytwenty-overlay"
       v-bind:style="overlayStyle">
       <div v-if="beforeLabel" class="twentytwenty-before-label">{{beforeLabel}}</div>
       <div v-if="afterLabel" class="twentytwenty-after-label">{{afterLabel}}</div>
     </div>
+
     <div class="twentytwenty-handle"
-      v-bind:style="handleStyle">
+      v-bind:style="handleStyle"
+      tabindex="0"
+      v-on:keydown="handleArrowNavigation">
         <div class="twentytwenty-arrow-left"></div>
         <div class="twentytwenty-arrow-right"></div>
     </div>
@@ -23,6 +29,7 @@
 </template>
 
 <script>
+
 export default {
   data () {
     return {
@@ -33,7 +40,6 @@ export default {
       overlayStyle: {}
     }
   },
-
   props: {
     before: {
       type: String,
@@ -52,50 +58,57 @@ export default {
     offset: {
       type: [String, Number],
       default: 0.5,
-      validator: (value) => {
-        return (value > 0 && value <= 1)
-      }
+      validator: (value) => (value > 0 && value <= 1)
+    },
+    keyboardStep: {
+      type: [String, Number],
+      default: 0.2,
+      validator: (value) => (value > 0 && value <= 1)
     }
   },
-
   methods: {
     setDimensions () {
       const img = this.$el.querySelector("img")
       this.imgOffset = img.getBoundingClientRect()
       this.containerStyle = { width: `${this.w}px`, height: `${this.h}px` };
     },
-
     startSlide (event) {
       this.sliding = true
       this.moveSlide(event)
       this.overlayStyle = { opacity: 0 }
     },
-
+    handleArrowNavigation(event) {
+      return this.moveSlide(event)
+    },
     moveSlide (event) {
       if (this.sliding) {
         var x = (event.touches ? event.touches[0].pageX : event.pageX) - this.imgOffset.left
         x = (x < 0) ? 0 : ((x > this.w) ? this.w : x)
-
-        this.slideOffset = (x / this.w)
+        return this.slideOffset = (x / this.w)
+      }
+      if (event.key) {
+        switch(event.key) {
+          case "Left":     // IE/Edge key
+          case "ArrowLeft":  this.slideOffset = ((this.floatOffset - this.floatKeyboardStep) >= 0) ? this.floatOffset - this.floatKeyboardStep : 0 ; break;
+          case "Right":    // IE/Edge key
+          case "ArrowRight": this.slideOffset = ((this.floatOffset + this.floatKeyboardStep) <= 1) ? this.floatOffset + this.floatKeyboardStep : 1 ; break;
+          default: return;
+        }
       }
     },
-
     endSlide () {
       this.sliding = false
       this.overlayStyle = {}
     },
-
     resize () {
       this.containerStyle = {};
       this.$nextTick(() => this.setDimensions());
     }
   },
-
   computed: {
     beforeImgStyle () {
       return { clip: `rect(0, ${this.x}px, ${this.h}px, 0)` }
     },
-
     handleStyle () {
       const size = 40;
       return {
@@ -105,22 +118,22 @@ export default {
         left: `calc(${this.slideOffset*100}% - ${size/2}px)`
       }
     },
-
     x () {
       return this.w * this.slideOffset
     },
-
     w () {
-      if (this.imgOffset)
-        return this.imgOffset.width
+      return this.imgOffset ? this.imgOffset.width : null
     },
-
     h () {
-      if (this.imgOffset)
-        return this.imgOffset.height
+      return this.imgOffset ? this.imgOffset.height : null
+    },
+    floatOffset () {
+      return parseFloat(this.slideOffset) 
+    },
+    floatKeyboardStep () {
+      return parseFloat(this.keyboardStep)
     }
   },
-
   mounted () {
     document.addEventListener("touchmove", this.moveSlide)
     document.addEventListener("touchend", this.endSlide)
@@ -128,7 +141,6 @@ export default {
     document.addEventListener("mouseup", this.endSlide)
     window.addEventListener("resize", this.resize)
   },
-
   beforeDestroy () {
     document.removeEventListener("touchmove", this.moveSlide)
     document.removeEventListener("touchend", this.endSlide)
@@ -194,6 +206,10 @@ export default {
   margin-left: -4px;
   margin-top: -4px;
   user-select: none;
+}
+.twentytwenty-container .twentytwenty-handle:active,
+.twentytwenty-container .twentytwenty-handle:focus {
+  outline: 0;
 }
 .twentytwenty-container .twentytwenty-handle:before, .twentytwenty-container .twentytwenty-handle:after {
   content: "";
