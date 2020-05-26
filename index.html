@@ -2,8 +2,7 @@
 <html>
   <head>
     <link href='//fonts.googleapis.com/css?family=Roboto:300,900,300italic' rel=stylesheet>
-    <link rel="stylesheet" href="demo/styles.css">
-    <link rel="stylesheet" href="//unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.css">
+    <link rel="stylesheet" href="assets/styles.css">
   </head>
 
   <body>
@@ -27,24 +26,21 @@
       </div>
       <div class="post">
         <div id="app">
-          <TwentyTwenty
-            offset="0.7"
-            before="demo/before.jpg"
-            before-label="before"
-            after="demo/after.jpg"
-            after-label="after" />
+          <twenty-twenty
+          before="assets/before.jpg"
+          after="assets/after.jpg" />
         </div>
         <p><strong>tl;dr &mdash; A picture is worth a thousand words</strong></p>
       </div>
     </div>
     <footer id="footer">
       <div class="container">
-        <p style="padding-top: 20px;">2017 &mdash; <a href="https://markhay.es">markhay.es</a></p>
+        <p style="padding-top: 20px;">2020 &mdash; <a href="https://markhay.es">markhay.es</a></p>
       </div>
     </footer>
 
     <script src="//unpkg.com/vue@2"></script>
-    <script src="//unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.js"></script>
+    <script src="//unpkg.com/vue-twentytwenty/dist/vue-twentytwenty.umd.js"></script>
     <script>
     new Vue({
       el: '#app'
