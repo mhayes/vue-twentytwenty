@@ -1,6 +1,4 @@
-import Vue from 'vue'
-import Demo from './Demo.vue'
+import { createApp } from 'vue'
+import DemoApp from './DemoApp.vue'
 
-new Vue({
-  render: h => h(Demo)
-}).$mount('#app')
+createApp(DemoApp).mount('#app')
