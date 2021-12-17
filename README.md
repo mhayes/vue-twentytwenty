@@ -2,11 +2,13 @@
 
 [![npm](https://img.shields.io/npm/v/vue-twentytwenty.svg)
 ![npm](https://img.shields.io/npm/dm/vue-twentytwenty.svg)](https://www.npmjs.com/package/vue-twentytwenty)
-[![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
+[![vue3](https://img.shields.io/badge/vue-3.x-brightgreen.svg)](https://vuejs.org/)
 
 A small component to quickly let users see the differences between 2 images. Based on the work I did for ZURB's [TwentyTwenty plugin](http://zurb.com/playground/twentytwenty).
 
 <a href="https://mhayes.github.io/vue-twentytwenty/" target="_blank">Live Demo</a>
+
+Looking for Vue 2 support? Use the [v2](https://github.com/mhayes/vue-twentytwenty/tree/v2) branch.
 
 ## Installation
 
@@ -87,14 +89,14 @@ var YourComponent = Vue.extend({
 ```
 
 ## Props
-|Props|Description|Required|Type|Default|
-|-----|-----------|--------|----|-------|
-|before|URL of before image|true|String|-|
-|beforeLabel|When hovering over image what label should show up over before image|false|String|-|
-|after|URL of after image|true|String|-|
-|afterLabel|When hovering over image what label should show up over after image|false|String|-|
-|offset|How far from the left the slider should be on load (between 0 and 1)|false|Number|0.5|
-|keyboardStep|How far the slider should be moved on arrow key press (between 0 and 1)|false|Number|0.2|
+| Props        | Description                                                             | Required | Type   | Default |
+| ------------ | ----------------------------------------------------------------------- | -------- | ------ | ------- |
+| before       | URL of before image                                                     | true     | String | -       |
+| beforeLabel  | When hovering over image what label should show up over before image    | false    | String | -       |
+| after        | URL of after image                                                      | true     | String | -       |
+| afterLabel   | When hovering over image what label should show up over after image     | false    | String | -       |
+| offset       | How far from the left the slider should be on load (between 0 and 1)    | false    | Number | 0.5     |
+| keyboardStep | How far the slider should be moved on arrow key press (between 0 and 1) | false    | Number | 0.2     |
 
 ## Usage
 

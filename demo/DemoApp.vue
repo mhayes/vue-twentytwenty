@@ -7,27 +7,29 @@
       before="//placehold.it/600x200/E8117F/FFFFFF"
       beforeLabel="before"
       after="//placehold.it/600x200/CCCCCC/FFFFFF"
-      afterLabel="after" />
+      afterLabel="after"
+    />
   </div>
 </template>
 
 <script>
-  import TwentyTwenty from '../src/TwentyTwenty.vue';
+import TwentyTwenty from "../src/TwentyTwenty.vue";
 
-  export default {
-    components: {
-      TwentyTwenty
-    }
-  }
+export default {
+  name: "DemoApp",
+  components: {
+    TwentyTwenty,
+  },
+};
 </script>
 
 <style>
-  .container {
-    margin: 0 auto;
-    width: 80%;
-    font-family: sans-serif;
-  }
-  .container img {
-    max-width: 100%;
-  }
+.container {
+  margin: 0 auto;
+  width: 80%;
+  font-family: sans-serif;
+}
+.container img {
+  max-width: 100%;
+}
 </style>

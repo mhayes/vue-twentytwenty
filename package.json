@@ -1,17 +1,13 @@
 {
   "name": "vue-twentytwenty",
-  "version": "0.10.1",
-  "main": "./dist/vue-twentytwenty.common.js",
+  "version": "1.0.0-0",
   "author": "Mark Hayes <me@markhay.es>",
-  "contributors": [
-    "Mattia Astorino (https://equinsuocha.io)",
-    "Michele Riva (https://micheleriva.it)"
-  ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mhayes/vue-twentytwenty"
+  "scripts": {
+    "serve": "vue-cli-service serve demo/index.js",
+    "build": "vue-cli-service build --target lib --name vue-twentytwenty ./src/index.js",
+    "lint": "vue-cli-service lint"
   },
+  "main": "./dist/vue-twentytwenty.common.js",
   "files": [
     "dist/*",
     "src/*",
@@ -19,19 +15,14 @@
     "*.json"
   ],
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.3.0",
-    "@vue/cli-plugin-eslint": "~4.3.0",
-    "@vue/cli-service": "^4.3.1",
+    "@vue/cli-plugin-babel": "~5.0.0-rc.1",
+    "@vue/cli-plugin-eslint": "~5.0.0-rc.1",
+    "@vue/cli-service": "^5.0.0-rc.1",
+    "@vue/compiler-sfc": "^3.2.24",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "scripts": {
-    "serve": "vue-cli-service serve demo/index.js",
-    "build": "vue-cli-service build --target lib --name vue-twentytwenty ./src/index.js",
-    "lint": "vue-cli-service lint"
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "vue": "^3.2.24"
   },
   "eslintConfig": {
     "root": true,
@@ -51,5 +42,15 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "contributors": [
+    "Mattia Astorino (https://equinsuocha.io)",
+    "Michele Riva (https://micheleriva.it)",
+    "Estee Tey (https://esteeytey.dev)"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mhayes/vue-twentytwenty"
+  }
 }
