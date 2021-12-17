@@ -1,6 +1,6 @@
 {
   "name": "vue-twentytwenty",
-  "version": "0.10.2",
+  "version": "1.0.0-0",
   "author": "Mark Hayes <me@markhay.es>",
   "scripts": {
     "serve": "vue-cli-service serve demo/index.js",
